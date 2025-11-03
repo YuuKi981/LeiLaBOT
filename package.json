@@ -1,0 +1,26 @@
+{
+    "name": "leilabot",
+    "version": "1.0.0",
+    "description": "LeiLaBOT - Discord Bot Đa Năng",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "dev": "nodemon index.js",
+      "setup": "npm install && node setup.js"
+    },
+    "keywords": ["discord", "bot", "music", "javascript"],
+    "author": "CuongGatsBy94",
+    "license": "MIT",
+    "dependencies": {
+      "discord.js": "^14.14.1",
+      "@discordjs/voice": "^0.16.1",
+      "play-dl": "^1.9.7",
+      "ytdl-core": "^4.11.5",
+      "node-cron": "^3.0.3",
+      "@vitalets/google-translate-api": "^9.2.0",
+      "dotenv": "^16.4.1"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  }
