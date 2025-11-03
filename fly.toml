@@ -1,0 +1,44 @@
+# fly.toml app configuration file generated for leila-bot on 2025-11-03T18:29:05+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'leila-bot'
+primary_region = 'sin'
+
+[build]
+  builder = 'paketobuildpacks/builder:base'
+
+[deploy]
+  strategy = 'immediate'
+
+[env]
+  NODE_ENV = 'production'
+  PORT = '3000'
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 3000
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    interval = '10s'
+    timeout = '2s'
+    grace_period = '10s'
+
+[[vm]]
+  size = 'shared-cpu-1x'
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
